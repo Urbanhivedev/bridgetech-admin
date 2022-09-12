@@ -72,12 +72,45 @@ const navigationConfig = [
     ],
   },
   {
-    id: 'settings',
-    title: 'Settings',
+    id: 'admin',
+    title: 'Admin',
     type: 'group',
     icon: 'web',
-    url: '/apps/coming-soon4',
-  },
+    children: [
+      {
+        id: 'create-developer',
+        title: 'Create Developer',
+        type: 'item',
+        icon: 'photo',
+        url: '/apps/admin/createdeveloper',
+        // url: '/apps/coming-soon2',
+      },
+      {
+        id: 'developer-list',
+        title: 'Developer List',
+        type: 'item',
+        icon: 'event_available',
+       // url: '/apps/bookdev',
+         url: '/apps/admin/developerlist',
+      },
+      {
+        id: 'booked-classes',
+        title: 'Booked Classes',
+        type: 'item',
+        icon: 'event_available',
+       // url: '/apps/bookdev',
+        url: '/apps/coming-soon3',
+      },
+      {
+        id: 'registered-users',
+        title: 'Registered Users',
+        type: 'item',
+        icon: 'event_available',
+       // url: '/apps/bookdev',
+        url: '/apps/admin/registeredUsers',
+      },
+    ]
+  }
 ];
 
 export default navigationConfig;

@@ -21,6 +21,9 @@ import LoginConfig from './urbanhive-login/LoginConfig';
 import RegisterConfig from './urbanhive-register/RegisterConfig';
 import SessionsConfig from './urbanhive-sessions/SessionsConfig';
 import BookDevConfig from './urbanhive-bookdev/BookDevConfig';
+import RegisteredUsersConfig from './urbanhive-admin-registered-users/RegisteredUsersConfig';
+import DeveloperListConfig from './urbanhive-admin-developer-list/DeveloperListConfig';
+import CreateNewDeveloperConfig from './urbanhive-admin-create-developer/CreateNewDeveloperConfig';
 
 const appsConfigs = [
   LoginConfig,
@@ -34,6 +37,9 @@ const appsConfigs = [
   Error500PageConfig,
   SessionsConfig,
   BookDevConfig,
+  RegisteredUsersConfig,
+  DeveloperListConfig,
+  CreateNewDeveloperConfig
   // AnalyticsDashboardAppConfig,
   // ProjectDashboardAppConfig,
   // MailAppConfig,
