@@ -99,7 +99,7 @@ const navigationConfig = [
         type: 'item',
         icon: 'event_available',
        // url: '/apps/bookdev',
-        url: '/apps/coming-soon3',
+        url: '/apps/admin/assignedbookings',
       },
       {
         id: 'registered-users',

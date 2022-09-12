@@ -22,6 +22,7 @@ import RegisterConfig from './urbanhive-register/RegisterConfig';
 import SessionsConfig from './urbanhive-sessions/SessionsConfig';
 import BookDevConfig from './urbanhive-bookdev/BookDevConfig';
 import RegisteredUsersConfig from './urbanhive-admin-registered-users/RegisteredUsersConfig';
+import AssignedBookingsConfig from './urbanhive-admin-assigned-bookings/AssignedBookingsConfig';
 import DeveloperListConfig from './urbanhive-admin-developer-list/DeveloperListConfig';
 import CreateNewDeveloperConfig from './urbanhive-admin-create-developer/CreateNewDeveloperConfig';
 
@@ -31,13 +32,14 @@ const appsConfigs = [
   CandidateAppConfig,
   InboxAppConfig,
   ProfileConfig,
-  ProfileConfig,
+ 
   ComingSoonPageConfig,
   Error404PageConfig,
   Error500PageConfig,
   SessionsConfig,
   BookDevConfig,
   RegisteredUsersConfig,
+  AssignedBookingsConfig,
   DeveloperListConfig,
   CreateNewDeveloperConfig
   // AnalyticsDashboardAppConfig,

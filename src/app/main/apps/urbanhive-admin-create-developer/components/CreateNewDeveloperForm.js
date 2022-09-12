@@ -71,23 +71,25 @@ export default function ProfileForm() {
     const dispatch = useDispatch();
     const history = useHistory();
     const { user } = useSelector((state) => state.login);
-    const { profileData, isLoading, error, message } = useSelector((state) => state.profile);
+    const { createDevData, isLoading, error, message } = useSelector((state) => state.createDev);
     const [showError, setshowError] = useState(false);
     const [showError2, setshowError2] = useState(false);
     const [file, setFile] = useState(null);
-    const [photoURL, setPhotoURL] = useState(profileData.photoUrl != '' ? profileData.photoUrl : user.photoUrl);
+    const [photoURL, setPhotoURL] = useState(createDev.photoUrl != '' ? createDev.photoUrl : user.photoUrl);
     // const [photoURL, setPhotoURL] = useState(null);
     const [openCrop, setOpenCrop] = useState(false);
   
 
     const initialFValues = {
       id: user.uid,
-      intro: profileData.intro == '' ? '' : profileData.intro,
-      skills_needed: profileData.skills_needed == '' ? '' : profileData.skills_needed,
-      isTechnical: profileData.isTechnical == '' ? 'nil' : profileData.isTechnical,
-      lookingFor: profileData.lookingFor == '' ? 'nil' : profileData.lookingFor,
-      city: profileData.city == '' ? '' : profileData.city,
-      skillset: profileData.skillset == '' ? '' : profileData.skillset,
+      firstName: createDevData.firstName == '' ? '' : createDevData.firstName,
+      lastName: createDevData.lastName == '' ? '' : createDevData.lastName,
+      intro: createDevData.intro == '' ? '' : createDevData.intro,
+      skills_needed: createDevData.skills_needed == '' ? '' : createDevData.skills_needed,
+      isTechnical: createDevData.isTechnical == '' ? 'nil' : createDevData.isTechnical,
+      lookingFor: createDevData.lookingFor == '' ? 'nil' : createDevData.lookingFor,
+      city: createDevData.city == '' ? '' : createDevData.city,
+      skillset: createDevData.skillset == '' ? '' : createDevData.skillset,
       // hireDate: new Date(),
       // isPermanent: false,
   }
@@ -109,6 +111,12 @@ export default function ProfileForm() {
 
     const validate = (fieldValues = values) => {
         let temp = { ...errors }
+        if ('firstName' in fieldValues)
+        temp.firstName = fieldValues.firstName ? "" : "This field is required."
+
+        if ('lastName' in fieldValues)
+        temp.lastName = fieldValues.lastName ? "" : "This field is required."
+
         if ('intro' in fieldValues)
             temp.intro = fieldValues.intro ? "" : "This field is required."
        if ('skillset' in fieldValues)
@@ -161,7 +169,7 @@ export default function ProfileForm() {
            const isTechnical = values.isTechnical;
            const lookingFor = values.lookingFor;
 
-          const profile = { intro, skillset, city, skills_needed, isTechnical, lookingFor};
+          const profile = { firstName,LastName ,intro, skillset, city, skills_needed, isTechnical, lookingFor};
           console.log('Logged User: ', fb.auth().currentUser.uid);
           if(photoURL == static_img){
           dispatch(createProfile(profile, user, file, resetForm, photoURL));
@@ -193,16 +201,19 @@ export default function ProfileForm() {
         }
       >
         <p style={{ fontSize: '11px' }}><b>{message}</b></p>
-      </Alert><br/></div>}
+      </Alert><br/></div>
+      /*SUBMISSION ALERT ENDING */
+      }
+
             <p>Enter the new developer's details accurately.</p><br/>
             <Grid container spacing={4}>
                 <Grid item xs={12} sm={6}>
                 <Controls.Input
                         name="intro"
                         label="First Name"
-                        value={values.intro}
+                        value={values.firstName}
                         onChange={handleInputChange}
-                        error={errors.intro}
+                        error={errors.firstName}
                         rows={2}
                         maxRows={4}
                     />
@@ -213,9 +224,9 @@ export default function ProfileForm() {
                 <Controls.Input
                         name="intro"
                         label="Last Name"
-                        value={values.intro}
+                        value={values.lastName}
                         onChange={handleInputChange}
-                        error={errors.intro}
+                        error={errors.lastName}
                         rows={2}
                         maxRows={4}
                     />
@@ -250,7 +261,7 @@ export default function ProfileForm() {
                 <Grid item xs={12} sm={6}>
                 <Controls.Select
                         name="skillset"
-                        label="What type of developer is this(Primary Skillset)?"
+                        label="What type of developer is this ?"
                         value={values.skillset}
                         onChange={handleInputChange}
                         options={skillSetService.getSkillset()}
