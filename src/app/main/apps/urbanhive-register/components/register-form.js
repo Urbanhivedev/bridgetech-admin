@@ -86,7 +86,7 @@ function RegisterForm(props) {
     const fName = model.fName;
     const lName = model.lName;
 
-    const name = fName + lName;
+    const name = fName + ' ' + lName;
     const email = model.email;
     const phone = model.phone;
     const password = model.password;
