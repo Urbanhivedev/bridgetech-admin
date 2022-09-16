@@ -17,7 +17,10 @@ import { logoutSuccess } from 'redux/reducers/auth.slice';
 
 
 const schema = yup.object().shape({
-  displayName: yup.string().required('You must enter display name'),
+  // displayName: yup.string().required('You must enter display name'),
+  fName: yup.string().required('You must enter first name'),
+  lName: yup.string().required('You must enter last name'),
+  phone: yup.number().required('You must enter phone number'),
   email: yup.string().email('You must enter a valid email').required('You must enter a email'),
   password: yup
     .string()
@@ -27,7 +30,10 @@ const schema = yup.object().shape({
 });
 
 const defaultValues = {
-  displayName: '',
+  // displayName: '',
+  fName: '',
+  lName: '',
+  phone: '',
   email: '',
   password: '',
   passwordConfirm: '',
@@ -76,10 +82,15 @@ function RegisterForm(props) {
   function userSignup(model) {
     // dispatch(submitRegister(model));
 
-    const name = model.displayName;
+    // const name = model.displayName;
+    const fName = model.fName;
+    const lName = model.lName;
+
+    const name = fName + lName;
     const email = model.email;
+    const phone = model.phone;
     const password = model.password;
-    const user = { name, email, password };
+    const user = { name, email, phone, password };
     dispatch(signup(user, history));
   }
 
@@ -103,7 +114,7 @@ function RegisterForm(props) {
       </Alert><br/></div>}
 
       <form className="flex flex-col justify-center w-full" onSubmit={handleSubmit(userSignup)}>
-        <Controller
+        {/* <Controller
           name="displayName"
           control={control}
           render={({ field }) => (
@@ -116,6 +127,62 @@ function RegisterForm(props) {
               label="Display name"
               error={!!errors.displayName}
               helperText={errors?.displayName?.message}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <Icon className="text-20" color="action">
+                      person
+                    </Icon>
+                  </InputAdornment>
+                ),
+              }}
+              variant="outlined"
+              required
+            />
+          )}
+        /> */}
+
+         <Controller
+          name="fName"
+          control={control}
+          render={({ field }) => (
+            <TextField
+              {...field}
+              // value={name}
+              // onChange={(e) => setName(e.target.value)}
+              className="mb-16"
+              type="text"
+              label="First name"
+              error={!!errors.fName}
+              helperText={errors?.fName?.message}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <Icon className="text-20" color="action">
+                      person
+                    </Icon>
+                  </InputAdornment>
+                ),
+              }}
+              variant="outlined"
+              required
+            />
+          )}
+        />
+
+        <Controller
+          name="lName"
+          control={control}
+          render={({ field }) => (
+            <TextField
+              {...field}
+              // value={name}
+              // onChange={(e) => setName(e.target.value)}
+              className="mb-16"
+              type="text"
+              label="Last name"
+              error={!!errors.lName}
+              helperText={errors?.lName?.message}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -149,6 +216,34 @@ function RegisterForm(props) {
                   <InputAdornment position="end">
                     <Icon className="text-20" color="action">
                       email
+                    </Icon>
+                  </InputAdornment>
+                ),
+              }}
+              variant="outlined"
+              required
+            />
+          )}
+        />
+
+         <Controller
+          name="phone"
+          control={control}
+          render={({ field }) => (
+            <TextField
+              {...field}
+              // value={email}
+              // onChange={(e) => setEmail(e.target.value)}
+              className="mb-16"
+              type="text"
+              error={!!errors.phone}
+              helperText={errors?.phone?.message}
+              label="Phone"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <Icon className="text-20" color="action">
+                      phone
                     </Icon>
                   </InputAdornment>
                 ),

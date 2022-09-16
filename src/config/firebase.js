@@ -7,12 +7,12 @@ import "firebase/auth";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBJ8-kSWtcsolAmhtHZ1eTDZhov35Lo-hk",
-  authDomain: "urbanhive-co-matcher.firebaseapp.com",
-  projectId: "urbanhive-co-matcher",
-  storageBucket: "urbanhive-co-matcher.appspot.com",
-  messagingSenderId: "618033481332",
-  appId: "1:618033481332:web:345cbc75a388cfd5853321"
+  apiKey: "AIzaSyA6Li1lqmCLz8CCVtWKPFCZ0niyQflRX7o",
+  authDomain: "bridgetech-advance-project.firebaseapp.com",
+  projectId: "bridgetech-advance-project",
+  storageBucket: "bridgetech-advance-project.appspot.com",
+  messagingSenderId: "347276694492",
+  appId: "1:347276694492:web:ddc0009ac7956f061d3519",
 };
 
 
@@ -27,7 +27,7 @@ export const storage = firebase.storage();
 
 export const auth = firebase.auth();
 
-export const static_img = 'https://firebasestorage.googleapis.com/v0/b/urbanhive-co-matcher.appspot.com/o/profile_images%2Fprofile.jpg?alt=media&token=c4980749-6474-4c77-9682-bc28b0742e30';
+export const static_img = 'https://firebasestorage.googleapis.com/v0/b/bridgetech-advance-project.appspot.com/o/profile_images%2Fprofile.jpg?alt=media&token=b3c94ada-1b08-4834-bbd1-647882c7195a';
 
 
 

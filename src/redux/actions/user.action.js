@@ -5,10 +5,11 @@ import { sendChat } from './chat.action';
 import { result } from 'lodash';
 import { clearChat } from 'redux/reducers/chat.slice';
   
-    export const fetchAllUsers = () => async (dispatch) => {
+    export const fetchAllUsers = (uid) => async (dispatch) => {
             dispatch(fetchUsersPending());
             // db.collection('users').where("uid", "!=", fb.auth().currentUser.uid)
             db.collection('users')
+            .where("uid", "!=", uid)
             .get()
             .then((snapshot) => {
                 const users = snapshot.docs.map((doc) => ({ ...doc.data() }));

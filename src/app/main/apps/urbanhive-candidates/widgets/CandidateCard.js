@@ -97,7 +97,7 @@ const inviteSkip = (type, user2) => {
 
   
 useEffect(() => {
-   dispatch(fetchAllUsers());
+   dispatch(fetchAllUsers(user.uid));
    dispatch(updateLastActive(user.uid));
 }, [])
 
@@ -188,10 +188,10 @@ const userList = output.length ? (
         <div className={classes.root}>
        {/* <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group"> */}
        <ButtonGroup size="large" variant="contained" color="primary" aria-label="large contained primary button group">
-        <Button onClick={() => {reactSwipeEl.next(); inviteSkip(0, users.uid);}} style={{ backgroundColor: !canSwipe && '#1B2330' }}>Skip</Button>
-        <Button onClick={() => {reactSwipeEl.prev(); inviteSkip(-1, users.uid);}} style={{ backgroundColor: '#0891B2' }} >Undo</Button>
+        <Button onClick={() => {reactSwipeEl.next(); inviteSkip(0, users.uid);}} style={{ backgroundColor: !canSwipe && 'black' }}>Skip</Button>
+        <Button onClick={() => {reactSwipeEl.prev(); inviteSkip(-1, users.uid);}} style={{ backgroundColor: '#f4a5oc' }} >Undo</Button>
         {users.uid != user.uid ? 
-        <Button onClick={() => {reactSwipeEl.next(); {users.invited_amt > 0 ? alert('You have already invited this user') : inviteSkip(1, users.uid)};}} style={{ backgroundColor: !canSwipe && '#1B2330' }}>Invite</Button>
+        <Button onClick={() => {reactSwipeEl.next(); {users.invited_amt > 0 ? alert('You have already invited this user') : inviteSkip(1, users.uid)};}} style={{ backgroundColor: !canSwipe && 'black' }}>Invite</Button>
         // : users.invited_amt > 0 ? <Button onClick={() => {reactSwipeEl.next(); }} style={{ backgroundColor: !canSwipe && '#1B2330' }}>Invite</Button> :
         : <Button onClick={() => {alert('You cannot invite yourself');}} style={{ backgroundColor: '#F6F7F9', color: 'black'}}>Invite</Button>
         }

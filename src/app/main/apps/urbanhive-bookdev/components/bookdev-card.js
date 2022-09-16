@@ -204,9 +204,26 @@ function BookDevCard () {
                     onChange={handleChange}
                     aria-label="Platform"
                     >
-                    <ToggleButton onClick={() => setUser(users.uid, 'time1')} value={'time1'} sx={{ cursor: 'pointer' }}  classes={{ selected: classes2.selected }} style={{fontSize: '13px', outlineColor: 'black', outlineWidth: '1px', outlineStyle: 'solid', margin: '2px' }}><b>10am - 12pm</b></ToggleButton>
-                    <ToggleButton onClick={() => setUser(users.uid, 'time2')} value={'time2'} sx={{ cursor: 'pointer' }} classes={{ selected: classes2.selected }} style={{fontSize: '13px', outlineColor: 'black', outlineWidth: '1px', outlineStyle: 'solid', margin: '2px'}}><b>12pm - 2pm</b></ToggleButton>
-                    <ToggleButton onClick={() => setUser(users.uid, 'time3')} value={'time3'} sx={{ cursor: 'pointer' }} classes={{ selected: classes2.selected }} style={{fontSize: '13px', outlineColor: 'black', outlineWidth: '1px', outlineStyle: 'solid', margin: '2px'}}><b>2:30pm - 4pm</b></ToggleButton>
+                    <ToggleButton onClick={() => setUser(users.uid, 'time1')} value={'time1'} sx={{ cursor: 'pointer' }}  classes={{ selected: classes2.selected }} style={{fontSize: '13px', outlineColor: 'black', outlineWidth: '1px', outlineStyle: 'solid', margin: '2px' }}><b>10am - 11am</b></ToggleButton>
+                    <ToggleButton onClick={() => setUser(users.uid, 'time2')} value={'time2'} sx={{ cursor: 'pointer' }} classes={{ selected: classes2.selected }} style={{fontSize: '13px', outlineColor: 'black', outlineWidth: '1px', outlineStyle: 'solid', margin: '2px'}}><b>11am - 12pm</b></ToggleButton>
+                    <ToggleButton onClick={() => setUser(users.uid, 'time3')} value={'time3'} sx={{ cursor: 'pointer' }} classes={{ selected: classes2.selected }} style={{fontSize: '13px', outlineColor: 'black', outlineWidth: '1px', outlineStyle: 'solid', margin: '2px'}}><b>12pm - 1pm</b></ToggleButton>
+                    </ToggleButtonGroup>
+                  </Grid>
+
+                  <br/>
+                  <Grid container justify="center">
+                  <ToggleButtonGroup
+                    style={{paddingLeft: '30px', paddingRight: '20px'}}
+                    color="primary"
+                    value={time}
+                    exclusive 
+                    // onChange={(e) => setTime(e.target.value)}
+                    onChange={handleChange}
+                    aria-label="Platform"
+                    >
+                    <ToggleButton onClick={() => setUser(users.uid, 'time4')} value={'time4'} sx={{ cursor: 'pointer' }}  classes={{ selected: classes2.selected }} style={{fontSize: '13px', outlineColor: 'black', outlineWidth: '1px', outlineStyle: 'solid', margin: '2px' }}><b>01pm - 02pm</b></ToggleButton>
+                    <ToggleButton onClick={() => setUser(users.uid, 'time5')} value={'time5'} sx={{ cursor: 'pointer' }} classes={{ selected: classes2.selected }} style={{fontSize: '13px', outlineColor: 'black', outlineWidth: '1px', outlineStyle: 'solid', margin: '2px'}}><b>02pm - 03pm</b></ToggleButton>
+                    <ToggleButton onClick={() => setUser(users.uid, 'time6')} value={'time6'} sx={{ cursor: 'pointer' }} classes={{ selected: classes2.selected }} style={{fontSize: '13px', outlineColor: 'black', outlineWidth: '1px', outlineStyle: 'solid', margin: '2px'}}><b>03pm - 04pm</b></ToggleButton>
                     </ToggleButtonGroup>
                   </Grid>
 
