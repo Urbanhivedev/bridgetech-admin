@@ -1,7 +1,7 @@
 import FusePageSimple from '@fuse/core/FusePageSimple';
 
 import {Typography,Icon,AppBar,Card,CardHeader,CardActions,CardContent,CardMedia,CssBaseline,Grid,Container} from '@material-ui/core';
-import { styled } from '@mui/material/styles';
+import { styled,createTheme, ThemeProvider  } from '@mui/material/styles';
 import {makeStyles} from  '@material-ui/core/styles';
 import Stack from '@mui/material/Stack';
 
@@ -35,6 +35,20 @@ import TheatersIcon from '@mui/icons-material/Theaters';*/
 
 
 function SessionsCard() {
+
+ 
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      // light: will be calculated from palette.primary.main,
+      main: '#000000',
+      // dark: will be calculated from palette.primary.main,
+      // contrastText: will be calculated to contrast with palette.primary.main
+    }
+     
+  },
+});
 
  /*page regulation states */
  const [page1,setPage1] = useState(true)
@@ -115,6 +129,7 @@ function SessionsCard() {
   return (
     <>
      <Container maxWidth="lg">
+     <ThemeProvider theme={theme}>
       <CssBaseline/> 
         <Typography variant='h4' align="center" color="textPrimary" gutterBottom paragraph style={{marginTop:"4rem"}}> 
          Our Video Sessions
@@ -1013,7 +1028,7 @@ function SessionsCard() {
 
      
      </Grid>
-
+     </ThemeProvider>
      </Container>
     </>
   );
