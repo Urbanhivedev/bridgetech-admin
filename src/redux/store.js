@@ -1,6 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import loginReducer from './reducers/auth.slice';
 import profileReducer from './reducers/profile.slice';
+import createDevReducer from './reducers/createDev.slice';
 import userReducer from './reducers/user.slice';
 import chatReducer from './reducers/chat.slice';
 import fuse from '../app/store/fuse';
@@ -13,6 +14,7 @@ import thunk from 'redux-thunk';
 const reducers = combineReducers({
   login: loginReducer,
   profile: profileReducer,
+  createDev:createDevReducer,
   user: userReducer,
   chat: chatReducer,
   fuse,
