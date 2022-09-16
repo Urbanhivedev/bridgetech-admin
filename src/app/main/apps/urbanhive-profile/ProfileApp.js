@@ -3,9 +3,14 @@ import Icon from '@material-ui/core/Icon';
 import Typography from '@material-ui/core/Typography';
 import { Paper } from '@mui/material';
 import ProfileForm from './components/ProfileForm';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useHistory, Redirect } from 'react-router-dom';
 
 
 function ProfileApp() {
+  const { isAuth } = useSelector((state) => state.login);
+
+  if (!isAuth) return <Redirect to={'/login'}/>
   return (
     <FusePageSimple
       header={
