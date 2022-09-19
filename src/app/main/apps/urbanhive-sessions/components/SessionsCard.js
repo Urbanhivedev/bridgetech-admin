@@ -1,4 +1,6 @@
 import FusePageSimple from '@fuse/core/FusePageSimple';
+import { Link } from 'react-router-dom'
+
 
 import {Typography,Icon,AppBar,Card,CardHeader,CardActions,CardContent,CardMedia,CssBaseline,Grid,Container} from '@material-ui/core';
 import { styled,createTheme, ThemeProvider  } from '@mui/material/styles';
@@ -199,7 +201,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <b>Book Dev</b>
+            <Link to={'/apps/bookdev'}> <b>Book Dev</b>  </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -294,7 +296,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <b>Book Dev</b>
+             <Link to={'/apps/bookdev'}> <b>Book Dev</b> </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -387,7 +389,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <b>Book Dev</b>
+             <Link to={'/apps/bookdev'}> <b>Book Dev</b> </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -482,7 +484,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <b>Book Dev</b>
+             <Link to={'/apps/bookdev'}> <b>Book Dev</b> </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -576,7 +578,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <b>Book Dev</b>
+             <Link to={'/apps/bookdev'}> <b>Book Dev</b> </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -670,7 +672,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <b>Book Dev</b>
+             <Link to={'/apps/bookdev'}> <b>Book Dev</b> </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -765,7 +767,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <b>Book Dev</b>
+             <Link to={'/apps/bookdev'}> <b>Book Dev</b> </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -860,7 +862,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <b>Book Dev</b>
+             <Link to={'/apps/bookdev'}> <b>Book Dev</b> </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -956,7 +958,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <b>Book Dev</b>
+             <Link to={'/apps/bookdev'}> <b>Book Dev</b> </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
