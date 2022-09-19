@@ -201,7 +201,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-            <Link to={'/apps/bookdev'}> <b>Book Dev</b>  </Link>
+            <Link to={'/apps/bookdev'} style={{textDecoration:'none',color:"white"}}> <b>Book Dev</b>  </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -296,7 +296,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <Link to={'/apps/bookdev'}> <b>Book Dev</b> </Link>
+             <Link to={'/apps/bookdev'} style={{textDecoration:'none',color:"white"}}> <b>Book Dev</b>  </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -389,7 +389,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <Link to={'/apps/bookdev'}> <b>Book Dev</b> </Link>
+             <Link to={'/apps/bookdev'} style={{textDecoration:'none',color:"white"}}> <b>Book Dev</b>  </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -484,7 +484,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <Link to={'/apps/bookdev'}> <b>Book Dev</b> </Link>
+             <Link to={'/apps/bookdev'} style={{textDecoration:'none',color:"white"}}> <b>Book Dev</b>  </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -578,7 +578,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <Link to={'/apps/bookdev'}> <b>Book Dev</b> </Link>
+             <Link to={'/apps/bookdev'} style={{textDecoration:'none',color:"white"}}> <b>Book Dev</b>  </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -672,7 +672,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <Link to={'/apps/bookdev'}> <b>Book Dev</b> </Link>
+             <Link to={'/apps/bookdev'} style={{textDecoration:'none',color:"white"}}> <b>Book Dev</b>  </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -767,7 +767,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <Link to={'/apps/bookdev'}> <b>Book Dev</b> </Link>
+             <Link to={'/apps/bookdev'} style={{textDecoration:'none',color:"white"}}> <b>Book Dev</b>  </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -862,7 +862,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <Link to={'/apps/bookdev'}> <b>Book Dev</b> </Link>
+             <Link to={'/apps/bookdev'} style={{textDecoration:'none',color:"white"}}> <b>Book Dev</b>  </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -958,7 +958,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <Link to={'/apps/bookdev'}> <b>Book Dev</b> </Link>
+             <Link to={'/apps/bookdev'} style={{textDecoration:'none',color:"white"}}> <b>Book Dev</b>  </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>

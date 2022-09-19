@@ -161,7 +161,7 @@ function Login() {
               animate={{ opacity: 1, transition: { delay: 0.3 } }}
             >
               <Typography variant="subtitle1" color="inherit" className="mt-32">
-                Your powerful and professional Co-Matching Platform 😊.
+                Your powerful and professional Co-Founder Matching Platform 😊.
                
               <br/> <br/>
               <ul style={{listStyle: "square", color:"#FFFFF"}}>
