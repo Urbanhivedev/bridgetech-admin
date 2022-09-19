@@ -43,6 +43,7 @@ export const signup = (user, history) => async (dispatch) => {
           uid: res.user.uid,
           name: user.name,
           email: user.email,
+          phone: user.phone,
           password: user.password,
           photoUrl: static_img,
           lastActive: new Date().getTime(),
