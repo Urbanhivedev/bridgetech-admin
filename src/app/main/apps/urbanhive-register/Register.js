@@ -155,10 +155,10 @@ function Register() {
             >
               <Typography variant="subtitle1" color="inherit" className="mt-32">
               Your powerful and professional Co-Founder Matching Platform😊.
-              <br/> <br/>
+             
               <ul style={{listStyle: "square", color:"#FFFFF"}}>
-                 <li>Coding Sessions</li>
-                 <li>Book a Developer</li>
+              &nbsp; &nbsp;  <li>Coding Sessions</li>
+              &nbsp; &nbsp;  <li>Book a Developer</li>
                </ul>
               </Typography>
             </motion.div>
