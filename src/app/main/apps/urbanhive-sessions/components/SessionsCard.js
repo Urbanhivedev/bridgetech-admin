@@ -1,4 +1,6 @@
 import FusePageSimple from '@fuse/core/FusePageSimple';
+import { Link } from 'react-router-dom'
+
 
 import {Typography,Icon,AppBar,Card,CardHeader,CardActions,CardContent,CardMedia,CssBaseline,Grid,Container} from '@material-ui/core';
 import { styled,createTheme, ThemeProvider  } from '@mui/material/styles';
@@ -17,14 +19,14 @@ import { red } from '@mui/material/colors';
 import IconButton from '@mui/material/IconButton';
 
 import AVTR1 from "../../../urbanhive-assets/gray-copy.jpg" ;
-import AVTR2 from "../../../urbanhive-assets/ola-profile3.png" ;
+import AVTR2 from "../../../urbanhive-assets/random-guy.jpg" ;
 
 import TNAIL1 from  "../../../urbanhive-assets/urbanhive-thumbnails/fundamentals1.png";
 import TNAIL2 from  "../../../urbanhive-assets/urbanhive-thumbnails/fundamentals2.png";
 import TNAIL3 from  "../../../urbanhive-assets/urbanhive-thumbnails/CSS-units.png";
-import TNAIL4 from  "../../../urbanhive-assets/urbanhive-thumbnails/ola-profile3.png";
-import TNAIL5 from  "../../../urbanhive-assets/urbanhive-thumbnails/ola-profile3.png";
-import TNAIL6 from  "../../../urbanhive-assets/urbanhive-thumbnails/ola-profile3.png";
+import TNAIL4 from  "../../../urbanhive-assets/urbanhive-thumbnails/flutter-thumbnail.jpg";
+import TNAIL5 from  "../../../urbanhive-assets/urbanhive-thumbnails/flutter-thumbnail.jpg";
+import TNAIL6 from  "../../../urbanhive-assets/urbanhive-thumbnails/flutter-thumbnail.jpg";
 import TNAIL7 from  "../../../urbanhive-assets/urbanhive-thumbnails/CSS-position.png";
 import TNAIL8 from  "../../../urbanhive-assets/urbanhive-thumbnails/code-editor.png";
 import TNAIL9 from  "../../../urbanhive-assets/urbanhive-thumbnails/first-webpage.png";
@@ -199,7 +201,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <b>Book Dev</b>
+            <Link to={'/apps/bookdev'} style={{textDecoration:'none',color:"white"}}> <b>Book Dev</b>  </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -294,7 +296,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <b>Book Dev</b>
+             <Link to={'/apps/bookdev'} style={{textDecoration:'none',color:"white"}}> <b>Book Dev</b>  </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -387,7 +389,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <b>Book Dev</b>
+             <Link to={'/apps/bookdev'} style={{textDecoration:'none',color:"white"}}> <b>Book Dev</b>  </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -432,7 +434,7 @@ const theme = createTheme({
             </Avatar>
           }
        
-          title="BY: OLANREWAJU KABIR"
+          title="BY: FAROUK ABDUL"
           subheader="May 12, 2022"
          />
         <CardMedia
@@ -443,7 +445,7 @@ const theme = createTheme({
         />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-       <b>Web Development Indepth</b> <br/> (5 hours long)
+       <b>Flutter Intro</b> <br/> (18 minutes long)
         </Typography>
       </CardContent>
       
@@ -454,12 +456,11 @@ const theme = createTheme({
 
         <Grid item xs={5}>
         <Typography variant='h5' align="center" color="textPrimary" gutterBottom paragraph> 
-         <b>Web Development Indepth</b> (1)
+         <b>Flutter Development Intro</b> (1)
         </Typography>
         <p style={{fontSize: '15px'}}>
-        This video takes a thorough look at what web development is . It explores the purpose of each pillar of web development 
-        (HTML ,CSS and Javascript), and displays how they interact with one another.
-         It then goes into a tutorial on each of these technologies and how to set them up.
+        This video takes a thorough look at what mobile development is and how it is done with flutter.
+         It makes mention of the DART programming language and core principles of mobile development. Watch this to get up and running with mobile development.
         </p>
         </Grid>
         <Grid item xs={2} direction-xs-column>
@@ -472,7 +473,7 @@ const theme = createTheme({
              videocam
            </Icon>
              &nbsp;
-             <a href="https://youtu.be/vUwOW5VXM0Y" target="_blank" rel="noopener noreferrer">   <b>Watch</b> </a>
+             <a href="https://www.youtube.com/watch?v=zIp2Kn_9owE" target="_blank" rel="noopener noreferrer">   <b>Watch</b> </a>
              
           </Button>
          
@@ -482,7 +483,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <b>Book Dev</b>
+             <Link to={'/apps/bookdev'} style={{textDecoration:'none',color:"white"}}> <b>Book Dev</b>  </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -512,196 +513,10 @@ const theme = createTheme({
       </Grid> 
     </>
    }
+
+
 
 {page3 &&
-       <>
-        <Grid container spacing={2} justify="center" style={{marginTop:"2rem", marginBottom:"2rem"}}>
-       
-       
-        <Grid item xs={4}>
-        <Card sx={{ maxWidth: 345 }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            <img src={AVTR2}/>
-          </Avatar>
-        }
-       
-        title="BY: OLANREWAJU KABIR"
-        subheader="March 18th, 2022"
-      />
-      <CardMedia
-        component="img"
-        height="170"
-        image={TNAIL5}
-        alt="Paella dish"
-      />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-        <b>Web Development Indepth</b><br/>(1.5 hours Long)
-        </Typography>
-      </CardContent>
-      
-    </Card>
-
-        </Grid>
-       
-
-        <Grid item xs={5}>
-        <Typography variant='h5' align="center" color="textPrimary" gutterBottom paragraph> 
-         <b>Web Development Indepth</b> (2)
-        </Typography>
-        <p style={{fontSize: '15px'}}>
-        In this video , you will follow one of our developers to create a basic page with html and css.
-         This is to give you a taste of development of web pages and how they interact. You will create html ,
-         css and Javascript files in this video and implement some basic functionality.
-        </p>
-        </Grid>
-        <Grid item xs={2} direction-xs-column>
-         
-          <Stack  spacing={6} >
-         
-          <Button variant="contained" color="primary" style={{height:"40px",fontSize:"13px",padding:"1rem" }}>
-          <Icon className="text-20" >
-             videocam
-           </Icon>
-             &nbsp;
-             <a href="https://youtu.be/9GQgRd3Yz1U"  target="_blank" rel="noopener noreferrer" class="post-thumb">   <b>Watch</b> </a>
-             
-          </Button>
-          
-
-          <Button variant="contained" color="primary" style={{height:"40px",fontSize:"13px",padding:"1rem"}}>
-          <Icon className="text-20" >
-            event
-           </Icon>
-             &nbsp;
-             <b>Book Dev</b>
-          </Button>
-          
-          <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
-             <Icon fontSize="medium" >
-                star
-              </Icon>
-              <Icon fontSize="medium" >
-                star
-              </Icon>
-              <Icon fontSize="medium" >
-                star
-              </Icon>
-              <Icon fontSize="medium" >
-                star
-              </Icon>
-              <Icon fontSize="medium" >
-                star
-              </Icon>
-          </Stack>
-          
-          
-          </Stack>
-
-         
-        </Grid>
-       
-      </Grid>
-
-      <hr/>
-     
-   
-   
-   <Grid container spacing={2} justify="center" style={{marginTop:"2rem", marginBottom:"2rem"}}>
-       
-         
-          <Grid item xs={4}>
-          <Card sx={{ maxWidth: 345 }}>
-         <CardHeader
-          avatar={
-            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-              <img src={AVTR2}/>
-            </Avatar>
-          }
-       
-          title="BY: OLANREWAJU KABIR"
-          subheader="March 18th, 2022"
-         />
-        <CardMedia
-          component="img"
-          height="170"
-          image={TNAIL6}
-          alt="Paella dish"
-        />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-        <b>Web Development Indepth</b><br/>(1.5 hours long)
-        </Typography>
-      </CardContent>
-      
-    </Card>
-
-        </Grid>
-      
-
-        <Grid item xs={5}>
-        <Typography variant='h5' align="center" color="textPrimary" gutterBottom paragraph> 
-         <b>Web Development Indepth</b> (3)
-        </Typography>
-        <p style={{fontSize: '15px'}}>
-        In this video , you will follow one of our developers to create a basic 
-        page with html and css. This is to give you a taste of development of 
-        web pages and how they interact. You will create html , css and Javascript files in this video and implement some basic functionality.
-        </p>
-        </Grid>
-        <Grid item xs={2} direction-xs-column>
-         
-          <Stack  spacing={6} >
-          
-          <Button variant="contained" color="primary" style={{height:"40px",fontSize:"13px",padding:"1rem" }}>
-          <Icon className="text-20" >
-             videocam
-           </Icon>
-             &nbsp;
-             <a href="https://youtu.be/0wSzCv1nM28" target="_blank" rel="noopener noreferrer">   <b>Watch</b> </a>
-             
-          </Button>
-          
-
-          <Button variant="contained" color="primary" style={{height:"40px",fontSize:"13px",padding:"1rem"}}>
-          <Icon className="text-20" >
-            event
-           </Icon>
-             &nbsp;
-             <b>Book Dev</b>
-          </Button>
-          
-          <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
-             <Icon fontSize="medium" >
-                star
-              </Icon>
-              <Icon fontSize="medium" >
-                star
-              </Icon>
-              <Icon fontSize="medium" >
-                star
-              </Icon>
-              <Icon fontSize="medium" >
-                star
-              </Icon>
-              <Icon fontSize="medium" >
-                star
-              </Icon>
-          </Stack>
-          
-          
-          </Stack>
-
-         
-        </Grid>
-       
-      </Grid> 
-    </>
-   }
-
-{page4 &&
        <>
         <Grid container spacing={2} justify="center" style={{marginTop:"2rem", marginBottom:"2rem"}}>
        
@@ -765,7 +580,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <b>Book Dev</b>
+             <Link to={'/apps/bookdev'} style={{textDecoration:'none',color:"white"}}> <b>Book Dev</b>  </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -860,7 +675,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <b>Book Dev</b>
+             <Link to={'/apps/bookdev'} style={{textDecoration:'none',color:"white"}}> <b>Book Dev</b>  </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -892,7 +707,7 @@ const theme = createTheme({
    }
 
 
-{page5 &&
+{page4 &&
        <>
         <Grid container spacing={2} justify="center" style={{marginTop:"2rem", marginBottom:"2rem"}}>
        
@@ -956,7 +771,7 @@ const theme = createTheme({
             event
            </Icon>
              &nbsp;
-             <b>Book Dev</b>
+             <Link to={'/apps/bookdev'} style={{textDecoration:'none',color:"white"}}> <b>Book Dev</b>  </Link>
           </Button>
           
           <Stack spacing={1} direction="row"  style={{color:"#f2db05"}}>
@@ -1020,12 +835,12 @@ const theme = createTheme({
           <b>4</b>
        </Button>
 
-       <Button variant="contained" color="primary" onClick={page5Handler}  style={{height:"40px",fontSize:"13px",padding:"1rem",marginLeft:"1rem",marginRight:"1rem"}}>
+      {/* <Button variant="contained" color="primary" onClick={page5Handler}  style={{height:"40px",fontSize:"13px",padding:"1rem",marginLeft:"1rem",marginRight:"1rem"}}>
           
           &nbsp;
           <b>5</b>
        </Button>
-
+           */ }
      
      </Grid>
      </ThemeProvider>

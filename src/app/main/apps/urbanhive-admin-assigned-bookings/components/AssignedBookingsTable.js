@@ -5,22 +5,48 @@ import FusePageSimple from '@fuse/core/FusePageSimple';
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 
+import { makeStyles } from "@material-ui/core";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import { AddBoxOutlined } from '@material-ui/icons';
+
+
+const useStyles = makeStyles(theme => ({
+  tablecell: {
+    fontSize: '20px',
+  },
+}))
+
+
+
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'firstName', headerName: 'First name', width: 130 },
-  { field: 'lastName', headerName: 'Last name', width: 130 },
+  { field: 'firstName', headerName: 'Name', width: 130 },
+  { field: 'lastName', headerName: 'Email Address', width: 130 },
   {
     field: 'phoneNumber',
-    headerName: 'Phone Number',
+    headerName: 'Developer',
     type: 'string',
     width: 130,
   },
   {
     field: 'email',
-    headerName: 'Email Address',
+    headerName: 'Date',
     sortable: true,
     width: 160,
    
+  },
+  {
+    field: 'addBox',
+    headerName: 'Alter Date',
+    
+    width: 130,
   },
 ];
 
@@ -36,36 +62,45 @@ const rows = [
   { id: 9, lastName: 'Roxie', firstName: 'Harvey', phoneNumber:'08105565130' , email:'user_test1@bridgetechadvance.com'},
 ];
 
-export default function DataTable() {
+export default function BasicTable() {
   return (
-     <>
-     <h1>Upcoming Appointments</h1>
+      <>
+      
+    <h1>Upcoming Appointments</h1>
      <br/>
-    <div style={{ height: 400, width: '100%', fontSize:'100px' }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        checkboxSelection
-        style={{ fontSize:'1.5rem' }}
-      />
-    </div>
+    <TableContainer component={Paper} >
+      <Table sx={{ minWidth: 650 }}  aria-label="simple table">
+        <TableHead>
+          <TableRow >
+            <TableCell>Name</TableCell>
+            <TableCell align="right">email</TableCell>
+            <TableCell align="right">Developer Booked</TableCell>
+            <TableCell align="right">Day</TableCell>
+            <TableCell align="right">Time</TableCell>
+            <TableCell align="center">Change Booking</TableCell>
+          </TableRow>
 
-    <br/>
-
-    <h1>Past Appointments</h1>
-     <br/>
-    <div style={{ height: 400, width: '100%', fontSize:'100px' }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        checkboxSelection
-        style={{ fontSize:'1.5rem' }}
-      />
-    </div>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow
+              key={row.name}
+              
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {row.id}
+              </TableCell>
+              <TableCell align="right">{row.lastName}</TableCell>
+              <TableCell align="right">{row.firstName}</TableCell>
+              <TableCell align="right">{row.phoneNumber}</TableCell>
+              <TableCell align="right">{row.email}</TableCell>
+              <TableCell align="center"><AddBoxIcon/></TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
     </>
   );
 }

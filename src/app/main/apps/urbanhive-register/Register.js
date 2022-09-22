@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
       0.5
     )} 100%)`,
     color: theme.palette.primary.contrastText,
+   
   },
   leftSection: {},
   rightSection: {
@@ -153,7 +154,13 @@ function Register() {
               animate={{ opacity: 1, transition: { delay: 0.3 } }}
             >
               <Typography variant="subtitle1" color="inherit" className="mt-32">
-              Your powerful and professional Co-Matching Platform created just for you😊.
+              Your powerful and professional Co-Founder Matching Platform.
+             
+              <ul style={{listStyle: "square", color:"#FFFFF", marginLeft:"40px"}}>
+                <li style={{marginTop:"5px"}}>Coding Sessions</li>
+                <li style={{marginTop:"5px"}}>Book a Developer</li>
+                <li style={{marginTop:"5px"}}>Connect with Co-Founders</li>
+               </ul>
               </Typography>
             </motion.div>
           </div>
