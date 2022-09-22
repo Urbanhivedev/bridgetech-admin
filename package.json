@@ -19,7 +19,7 @@
         "@material-ui/pickers": "3.3.10",
         "@mui/icons-material": "^5.8.4",
         "@mui/material": "^5.8.6",
-        "@mui/x-data-grid": "^5.17.2",
+        "@mui/x-data-grid": "^5.17.3",
         "@reduxjs/toolkit": "^1.8.3",
         "apexcharts": "3.27.3",
         "auth0-lock": "11.30.4",

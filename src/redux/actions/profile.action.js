@@ -49,6 +49,7 @@ export const createProfile = (profile, user, file, resetForm, url) => async (dis
       skills_needed: profile.skills_needed,
       isTechnical: profile.isTechnical,
       lookingFor: profile.lookingFor,
+      githubUrl: profile.githubUrl,
       photoUrl: url,
   })
   .then(() => {

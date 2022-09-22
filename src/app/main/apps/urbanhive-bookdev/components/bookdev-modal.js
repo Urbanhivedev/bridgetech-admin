@@ -10,6 +10,8 @@ import { useHistory } from 'react-router-dom';
 import BookDevDetails from './bookdev-details';
 import BookDevPayment from './bookdev-payment';
 import Review from './bookdev-review';
+import PaymentMethod from './payment-type';
+import CouponPayment from './coupon-payment';
 
 
 
@@ -25,15 +27,14 @@ function PaperComponent(props) {
   );
 }
 
-const steps = ['Confirm Details', 'Make Payment'];
-// const steps = ['Confirm Details', 'Make Payment', 'Complete Deposit'];
+const steps = ['Confirm Details', 'Payment Method', 'Make Payment'];
 
 export default function BookDevModal({isOpen, setIsOpen, date, nTime}) {
-  // const { activeStep, isOpen } = useSelector((state) => state.transaction);
   const dispatch = useDispatch();
   const history = useHistory();
 
   const [activeStep, setActiveStep] = useState(0);
+  const [paymentType, setPaymentType] = useState(null);
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -53,9 +54,10 @@ export default function BookDevModal({isOpen, setIsOpen, date, nTime}) {
       case 0:
         return <BookDevDetails date={date} nTime={nTime}/>;
       case 1:
-        return <BookDevPayment setIsOpen={setIsOpen}/>;
+        return <PaymentMethod setActiveStep={setActiveStep} activeStep={activeStep} setPaymentType={setPaymentType} />;
       case 2:
-      //   return <Review type={'Deposit'} usage={'BookDev'}/>;
+        return paymentType == 'paystack' ? <BookDevPayment setIsOpen={setIsOpen} paymentType={paymentType} />
+        : <CouponPayment setIsOpen={setIsOpen} paymentType={paymentType} />;
       default:
         throw new Error('Unknown step');
     }
@@ -115,21 +117,18 @@ export default function BookDevModal({isOpen, setIsOpen, date, nTime}) {
                   )}
                   {activeStep === steps.length - 1
                   ?
-                  <Button
+                  <></>
+                  :
+                  activeStep == 0 && (
+                    <Button
                     variant="contained"
-                    onClick={()=> console.log('Ending...')}
+                    // onClick={() => paymentType == null && steps.length == 3 ? alert(steps.length) : handleNext()}
+                    onClick={handleNext}
                     sx={{ mt: 3, ml: 1 }}
                   >
-                   {activeStep === steps.length - 1 ? 'Confirm' : 'Next'}
+                    {activeStep === steps.length - 1 ? 'Confirm' : 'Next'}
                   </Button>
-                  :
-                  <Button
-                  variant="contained"
-                  onClick={handleNext}
-                  sx={{ mt: 3, ml: 1 }}
-                >
-                  {activeStep === steps.length - 1 ? 'Confirm' : 'Next'}
-                </Button>
+                  )
                   }
                   
                 </Box>

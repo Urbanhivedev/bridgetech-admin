@@ -12,7 +12,8 @@ import { logout } from '../../../../redux/actions/auth.action';
 import { fb, db, auth } from 'config/firebase';
 import Icon from '@material-ui/core/Icon';
 import Typography from '@material-ui/core/Typography';
-import BookDevCard from './components/bookdev-card';
+// import BookDevCard from './components/bookdev-card';
+import BookDevCard from './components/single-card';
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -75,7 +76,6 @@ function BookDev(props) {
 
     // </div>
   
-
   );
   
 }

@@ -75,6 +75,7 @@ export default function ProfileForm() {
     const [showError, setshowError] = useState(false);
     const [showError2, setshowError2] = useState(false);
     const [file, setFile] = useState(null);
+    const [githubUrl, setGithubUrl] = useState(profileData.githubUrl);
     const [photoURL, setPhotoURL] = useState(profileData.photoUrl != '' ? profileData.photoUrl : user.photoUrl);
     // const [photoURL, setPhotoURL] = useState(null);
     const [openCrop, setOpenCrop] = useState(false);
@@ -161,7 +162,7 @@ export default function ProfileForm() {
            const isTechnical = values.isTechnical;
            const lookingFor = values.lookingFor;
 
-          const profile = { intro, skillset, city, skills_needed, isTechnical, lookingFor};
+          const profile = { intro, skillset, city, skills_needed, isTechnical, lookingFor, githubUrl};
           console.log('Logged User: ', fb.auth().currentUser.uid);
           if(photoURL == static_img){
           dispatch(createProfile(profile, user, file, resetForm, photoURL));
@@ -295,6 +296,16 @@ export default function ProfileForm() {
           )}
         </Box>
          </Grid>
+
+         <Grid item xs={12} sm={6}>
+                <Controls.Input
+                        label="Github Url (Optional)"
+                        name="city"
+                        value={githubUrl}
+                        onChange={(e) => setGithubUrl(e.target.value)}
+                        error={errors.city}
+                    />
+                </Grid>
 
                 </Grid>
                 <br/>
