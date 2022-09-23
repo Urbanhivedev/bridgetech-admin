@@ -34,12 +34,12 @@ export default function BookDevDetails({date, nTime}) {
           <b>{nTime == 'time1' ? '10am - 11am' : nTime == 'time2' ? '11am - 12pm' : nTime == 'time3' ? '12pm - 1pm' : nTime == 'time4' ? '1pm - 2pm' : nTime == 'time5' ? '2pm - 3pm' : nTime == 'time6' ? '3pm - 4pm' : 'No time set'}</b>
           </Typography>
         </ListItem>
-        <ListItem sx={{ py: 1, px: 0 }}>
+        {/* <ListItem sx={{ py: 1, px: 0 }}>
           <ListItemText primary={"Amount: "} />
           <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
           <b>{currencyFormat(parseInt(5000))}</b>
           </Typography>
-        </ListItem>
+        </ListItem> */}
       </List>
       <Divider/>
     </React.Fragment>
