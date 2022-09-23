@@ -2,6 +2,7 @@ import Dialog from '@material-ui/core/Dialog';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeDialog } from 'app/store/fuse/dialogSlice';
 
+
 function FuseDialog(props) {
   const dispatch = useDispatch();
   const state = useSelector(({ fuse }) => fuse.dialog.state);

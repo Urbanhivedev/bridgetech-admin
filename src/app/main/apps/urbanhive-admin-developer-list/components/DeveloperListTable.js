@@ -2,8 +2,9 @@ import FusePageSimple from '@fuse/core/FusePageSimple';
 
 
 
-import * as React from 'react';
+import  React,{useEffect} from 'react';
 import { DataGrid } from '@mui/x-data-grid';
+import { useDispatch, useSelector } from 'react-redux';
 
 /*TABLE IMPORTS */
 import { makeStyles } from "@material-ui/core";
@@ -57,7 +58,7 @@ const columns = [
 ];
 
 const rows = [
-  { id: 1, lastName: 'Elon', firstName: 'Tesla', phoneNumber:'09035197246', email: 'ogorkelvin289@gmail.com'},
+  /*{ id: 1, lastName: 'Elon', firstName: 'Tesla', phoneNumber:'09035197246', email: 'ogorkelvin289@gmail.com'},
   { id: 2, lastName: 'Blake', firstName: 'Jade', phoneNumber:'08119477917' , email:'mydelivery250@gmail.com'},
   { id: 3, lastName: 'Test', firstName: 'Said', phoneNumber:'08105565130', email: 'blakej@gmail.com'},
   { id: 4, lastName: 'Stark', firstName: 'Arya', phoneNumber:'08119477917', email: 'tesla@gmail.com'},
@@ -65,15 +66,29 @@ const rows = [
   { id: 6, lastName: 'Melisandre', firstName: null, phoneNumber:'08183763331', email:'user_test4@bridgetechadvance.com'},
   { id: 7, lastName: 'Clifford', firstName: 'Ferrara', phoneNumber:'08119477917' , email:'user_test3@bridgetechadvance.com'},
   { id: 8, lastName: 'Frances', firstName: 'Rossini', phoneNumber:'08105565130'  , email:'user_test2@bridgetechadvance.com'},
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', phoneNumber:'08105565130' , email:'user_test1@bridgetechadvance.com'},
+  { id: 9, lastName: 'Roxie', firstName: 'Harvey', phoneNumber:'08105565130' , email:'user_test1@bridgetechadvance.com'},*/
 ];
 
-useEffect(() => {
-  dispatch(fetchAllDevelopers());
-   
-}, [])
+
 
 export default function BasicTable() {
+ 
+ /*dispatching actions */
+  const dispatch = useDispatch();
+  
+  /*getting reducers from our dispatched actions, even though they have thier own empty values before dispatches take place */
+  const { allDevelopers, error,message, isLoading } = useSelector((state) => state.developer);
+  const { user } = useSelector((state) => state.login);
+
+  useEffect(() => {
+    dispatch(fetchAllDevelopers());
+    console.log(allDevelopers)
+    console.log(error)
+     /*rows = [...allDevelopers]*/
+  }, [])
+ 
+  
+ 
   return (
       <>
       

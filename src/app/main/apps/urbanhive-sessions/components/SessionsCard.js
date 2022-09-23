@@ -19,14 +19,14 @@ import { red } from '@mui/material/colors';
 import IconButton from '@mui/material/IconButton';
 
 import AVTR1 from "../../../urbanhive-assets/gray-copy.jpg" ;
-import AVTR2 from "../../../urbanhive-assets/random-guy.jpg" ;
+import AVTR2 from "../../../urbanhive-assets/farouk-amoo.png" ;
 
 import TNAIL1 from  "../../../urbanhive-assets/urbanhive-thumbnails/fundamentals1.png";
 import TNAIL2 from  "../../../urbanhive-assets/urbanhive-thumbnails/fundamentals2.png";
 import TNAIL3 from  "../../../urbanhive-assets/urbanhive-thumbnails/CSS-units.png";
-import TNAIL4 from  "../../../urbanhive-assets/urbanhive-thumbnails/flutter-thumbnail.jpg";
-import TNAIL5 from  "../../../urbanhive-assets/urbanhive-thumbnails/flutter-thumbnail.jpg";
-import TNAIL6 from  "../../../urbanhive-assets/urbanhive-thumbnails/flutter-thumbnail.jpg";
+import TNAIL4 from  "../../../urbanhive-assets/urbanhive-thumbnails/flutter-thumbnail.png";
+import TNAIL5 from  "../../../urbanhive-assets/urbanhive-thumbnails/flutter-thumbnail.png";
+import TNAIL6 from  "../../../urbanhive-assets/urbanhive-thumbnails/flutter-thumbnail.png";
 import TNAIL7 from  "../../../urbanhive-assets/urbanhive-thumbnails/CSS-position.png";
 import TNAIL8 from  "../../../urbanhive-assets/urbanhive-thumbnails/code-editor.png";
 import TNAIL9 from  "../../../urbanhive-assets/urbanhive-thumbnails/first-webpage.png";
@@ -434,7 +434,7 @@ const theme = createTheme({
             </Avatar>
           }
        
-          title="BY: FAROUK ABDUL"
+          title="BY: FAROUK AMOO"
           subheader="May 12, 2022"
          />
         <CardMedia
@@ -445,7 +445,7 @@ const theme = createTheme({
         />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-       <b>Flutter Intro</b> <br/> (18 minutes long)
+       <b>Flutter Intro</b> <br/> (4 hours long)
         </Typography>
       </CardContent>
       
@@ -473,7 +473,7 @@ const theme = createTheme({
              videocam
            </Icon>
              &nbsp;
-             <a href="https://www.youtube.com/watch?v=zIp2Kn_9owE" target="_blank" rel="noopener noreferrer">   <b>Watch</b> </a>
+             <a href="https://www.youtube.com/watch?v=1Q7SKmZdnV4" target="_blank" rel="noopener noreferrer">   <b>Watch</b> </a>
              
           </Button>
          

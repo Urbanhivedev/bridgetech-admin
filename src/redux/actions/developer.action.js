@@ -4,19 +4,25 @@ import {fetchDevelopersPending, fetchDevelopersSuccess, fetchDevelopersFailed, f
 import { sendChat } from './chat.action';
 import { result } from 'lodash';
 import { clearChat } from 'redux/reducers/chat.slice';
-  
+ 
+
+
+
     export const fetchAllDevelopers = ( ) => async (dispatch) => {
             dispatch(fetchDevelopersPending());
             // db.collection('Developers').where("uid", "!=", fb.auth().currentDeveloper.uid)
             db.collection('developers')
             .get()
             .then((snapshot) => {
+                
                 const developers = snapshot.docs.map((doc) => ({ ...doc.data() }));
-                console.log('Developers, ', developers);
+                
+                
                 dispatch(fetchDevelopersSuccess(developers));
+                
         }).catch((error) => {
                 var errorMessage = error.message;
-                console.log('Error fetching profile', errorMessage);
+                console.log('Error fetching developers list', errorMessage);
                 dispatch(fetchDevelopersFailed({ errorMessage }));
         });
     
