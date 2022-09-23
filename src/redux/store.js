@@ -3,6 +3,7 @@ import loginReducer from './reducers/auth.slice';
 import profileReducer from './reducers/profile.slice';
 import createDevReducer from './reducers/createDev.slice';
 import userReducer from './reducers/user.slice';
+import adminUserReducer from './reducers/adminUser.slice';
 import developerReducer from './reducers/developer.slice';
 import chatReducer from './reducers/chat.slice';
 import fuse from '../app/store/fuse';
@@ -17,6 +18,7 @@ const reducers = combineReducers({
   profile: profileReducer,
   createDev:createDevReducer,
   user: userReducer,
+  adminUser: adminUserReducer,
   developer:developerReducer,
   chat: chatReducer,
   fuse,

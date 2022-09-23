@@ -57,8 +57,8 @@ const columns = [
   },
 ];
 
-const rows = [
-  /*{ id: 1, lastName: 'Elon', firstName: 'Tesla', phoneNumber:'09035197246', email: 'ogorkelvin289@gmail.com'},
+let rows = [
+ /* { id: 1, lastName: 'Elon', firstName: 'Tesla', phoneNumber:'09035197246', email: 'ogorkelvin289@gmail.com'},
   { id: 2, lastName: 'Blake', firstName: 'Jade', phoneNumber:'08119477917' , email:'mydelivery250@gmail.com'},
   { id: 3, lastName: 'Test', firstName: 'Said', phoneNumber:'08105565130', email: 'blakej@gmail.com'},
   { id: 4, lastName: 'Stark', firstName: 'Arya', phoneNumber:'08119477917', email: 'tesla@gmail.com'},
@@ -84,7 +84,7 @@ export default function BasicTable() {
     dispatch(fetchAllDevelopers());
     console.log(allDevelopers)
     console.log(error)
-     /*rows = [...allDevelopers]*/
+     rows = [...allDevelopers]
   }, [])
  
   
@@ -92,35 +92,39 @@ export default function BasicTable() {
   return (
       <>
       
-    <h1>Upcoming Appointments</h1>
+    <h1>Urban Hive's Developers</h1>
      <br/>
     <TableContainer component={Paper} >
       <Table sx={{ minWidth: 650 }}  aria-label="simple table">
         <TableHead>
           <TableRow >
-            <TableCell>Name</TableCell>
-            <TableCell align="right">email</TableCell>
-            <TableCell align="right">Developer Booked</TableCell>
-            <TableCell align="right">Day</TableCell>
-            <TableCell align="right">Time</TableCell>
-            <TableCell align="center">Change Booking</TableCell>
+            <TableCell>S/N</TableCell>
+            <TableCell align="center">Image</TableCell>
+            <TableCell align="center">Name</TableCell>
+            <TableCell align="center">Email</TableCell>
+            <TableCell align="center">Phone Number</TableCell>
+            
+            <TableCell align="center">Location</TableCell>
+            <TableCell align="center">Edit Info</TableCell>
           </TableRow>
 
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rows.map((row,index) => (
             <TableRow
-              key={row.name}
+              key={index}
               
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.id}
+                {index + 1}
               </TableCell>
-              <TableCell align="right">{row.lastName}</TableCell>
-              <TableCell align="right">{row.firstName}</TableCell>
-              <TableCell align="right">{row.phoneNumber}</TableCell>
-              <TableCell align="right">{row.email}</TableCell>
+              <TableCell align="center"> <img src={row.photoUrl} alt="Girl in a jacket" width="55" height="35"/></TableCell>
+              <TableCell align="center">{row.firstName + " " + row.lastName}</TableCell>
+              <TableCell align="center">{row.email}</TableCell>
+              <TableCell align="center">{row.phoneNumber}</TableCell>
+             
+              <TableCell align="center">{row.location}</TableCell>
               <TableCell align="center"><AddBoxIcon/></TableCell>
             </TableRow>
           ))}
