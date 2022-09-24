@@ -1,13 +1,13 @@
 import { createSelector, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import navigationConfig from 'app/fuse-configs/navigationConfig';
-
+import navigationConfigAdmin from 'app/fuse-configs/navigationConfigAdmin';
 import FuseUtils from '@fuse/utils';
 import i18next from 'i18next';
 import _ from '@lodash';
 
 const navigationAdapter = createEntityAdapter();
 const emptyInitialState = navigationAdapter.getInitialState();
-const initialState = navigationAdapter.upsertMany(emptyInitialState, navigationConfig);
+const initialState = navigationAdapter.upsertMany(emptyInitialState, navigationConfigAdmin);
 
 
 
@@ -41,9 +41,9 @@ export const {
   selectById: selectNavigationItemById,
 } = navigationAdapter.getSelectors((state) => state.fuse.navigation);
 
-const getUserisAdmin = /*(state) => state.login.user.isAdmin THIS DOESNT WORK*/ false;
+const getUserisAdmin = /*(state) => state.login.user.isAdmin THIS STATE.LOGIN DOESNT WORK */ false;
 
-const navigationSlice = createSlice({
+const navigationAdminSlice = createSlice({
   name: 'navigation',
   initialState: initialState,
   reducers: {
@@ -52,7 +52,7 @@ const navigationSlice = createSlice({
   },
 });
 
-export const { setNavigation, resetNavigation } = navigationSlice.actions;
+export const { setNavigation, resetNavigation } = navigationAdminSlice.actions;
 
 const getUserRole = (state) => state.login.user.name;
 
@@ -122,4 +122,4 @@ export const selectFlatNavigation = createSelector([selectNavigation], (navigati
   FuseUtils.getFlatNavigation(navigation)
 );
 
-export default navigationSlice.reducer;
+export default navigationAdminSlice.reducer;
