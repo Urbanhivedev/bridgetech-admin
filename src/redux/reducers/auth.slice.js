@@ -9,6 +9,7 @@ const initialState = {
   },
   isLoading: false,
   isAuth: false,
+  isAdmin:false,
   error: '',
   error2: '',
   message: '',
@@ -30,6 +31,7 @@ const loginSlice = createSlice({
         state.isLoading = false;
         state.user = action.payload.user;
         state.user.uid = action.payload.uid;
+        state.user.isAdmin = action.payload.isAdmin ? action.payload.isAdmin:false ;
         state.isAuth = true;
         state.error = '';
         state.message = '';

@@ -3,6 +3,7 @@ import FusePageSimple from '@fuse/core/FusePageSimple';
 
 
 import  React, {useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import { DataGrid } from '@mui/x-data-grid';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -103,7 +104,7 @@ export default function BasicTable() {
               <TableCell align="center">{row.developerBooked}</TableCell>
               <TableCell align="center">{new Date(row.Day.seconds*1000).toDateString()}</TableCell>
               <TableCell align="center">{new Date(row.time.seconds*1000).toDateString()}</TableCell>
-              <TableCell align="center"><AddBoxIcon/></TableCell>
+              <TableCell align="center"><Link to = {`/apps/admin/editappointment/${123456}`}><AddBoxIcon/></Link></TableCell>
             </TableRow>
           ))}
         </TableBody>
