@@ -11,6 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import { selectFlatNavigation } from 'app/store/fuse/navigationSlice';
+import { selectFlatNavigationAdmin } from 'app/store/fuse/navigationAdminSlice';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { memo, useRef, useState } from 'react';
@@ -36,8 +37,9 @@ const useStyles = makeStyles({
 
 function FuseShortcuts(props) {
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.login);
   const shortcuts = useSelector(({ auth }) => auth.user.data.shortcuts);
-  const navigation = useSelector(selectFlatNavigation);
+  const navigation = useSelector(user.isAdmin ?selectFlatNavigationAdmin :selectFlatNavigation);
 
   const classes = useStyles(props);
   const searchInputRef = useRef(null);

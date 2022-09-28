@@ -44,7 +44,7 @@ export const {
 const getUserisAdmin = /*(state) => state.login.user.isAdmin THIS STATE.LOGIN DOESNT WORK */ false;
 
 const navigationAdminSlice = createSlice({
-  name: 'navigation',
+  name: 'navigationAdmin',
   initialState: initialState,
   reducers: {
     setNavigation: navigationAdapter.setAll,
@@ -56,35 +56,7 @@ export const { setNavigation, resetNavigation } = navigationAdminSlice.actions;
 
 const getUserRole = (state) => state.login.user.name;
 
-export const selectNavigation = createSelector(
-  [selectNavigationAll, ({ i18n }) => i18n.language, getUserRole],
-  (navigation, language, userRole) => {
-    function setTranslationValues(data) {
-      // loop through every object in the array
-      return data.map((item) => {
-        if (item.translate && item.title) {
-          item.title = i18next.t(`navigation:${item.translate}`);
-        }
 
-        // see if there is a children node
-        if (item.children) {
-          // run this function recursively on the children array
-          item.children = setTranslationValues(item.children);
-        }
-        return item;
-      });
-    }
-
-    return setTranslationValues(
-      _.merge(
-        [],
-        FuseUtils.filterRecursive(navigation, (item) =>
-          FuseUtils.hasPermission(item.auth, userRole)
-        )
-      )
-    );
-  }
-);
 
 /*the select navigation FOR ADMINS */
 export const selectNavigationAdmin = createSelector(
@@ -94,7 +66,7 @@ export const selectNavigationAdmin = createSelector(
       // loop through every object in the array
       return data.map((item) => {
         if (item.translate && item.title) {
-          item.title = i18next.t(`navigation:${item.translate}`);
+          item.title = i18next.t(`navigationAdmin:${item.translate}`);
         }
 
         // see if there is a children node
@@ -118,7 +90,7 @@ export const selectNavigationAdmin = createSelector(
 );
 
 
-export const selectFlatNavigation = createSelector([selectNavigation], (navigation) =>
+export const selectFlatNavigationAdmin = createSelector([selectNavigationAdmin], (navigation) =>
   FuseUtils.getFlatNavigation(navigation)
 );
 

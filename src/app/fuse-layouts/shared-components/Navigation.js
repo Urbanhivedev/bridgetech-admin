@@ -12,8 +12,8 @@ import { navbarCloseMobile } from '../../store/fuse/navbarSlice';
 function Navigation(props) {
   const { user } = useSelector((state) => state.login);
 
-  console.log(user)
-  const navigation = user.isAdmin ?useSelector(selectNavigationAdmin):useSelector(selectNavigation);
+  console.log("admin is ...",user.isAdmin)
+  const navigation = useSelector(user.isAdmin === true ?selectNavigationAdmin:selectNavigation);
  
   const theme = useTheme();
   const mdDown = useMediaQuery(theme.breakpoints.down('md'));

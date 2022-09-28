@@ -7,6 +7,7 @@ import { memo, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import FuseNavigation from '@fuse/core/FuseNavigation/FuseNavigation';
 import { selectNavigation } from 'app/store/fuse/navigationSlice';
+import { selectNavigationAdmin } from 'app/store/fuse/navigationAdminSlice';
 import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 import { selectContrastMainTheme } from 'app/store/fuse/settingsSlice';
 import { useLocation } from 'react-router-dom';
@@ -58,7 +59,8 @@ function isUrlInChildren(parent, url) {
 }
 
 function NavbarStyle3Content(props) {
-  const navigation = useSelector(selectNavigation);
+  const { user } = useSelector((state) => state.login);
+  const navigation = useSelector(user.isAdmin?selectNavigationAdmin:selectNavigation);
   const [selectedNavigation, setSelectedNavigation] = useState([]);
   const classes = useStyles({ ...props, selectedNavigation });
   const [panelOpen, setPanelOpen] = useState(false);
