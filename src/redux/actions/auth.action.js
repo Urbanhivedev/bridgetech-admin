@@ -75,7 +75,8 @@ export const signup = (user, history) => async (dispatch) => {
           dispatch(loginSuccess({ user, uid }));
           dispatch(fetchProfile());
           dispatch(updateLastActive(uid));
-          history.push('/candidates');
+          // history.push('/candidates');
+          history.push('/apps/sessions');
           // window.location.href = '/candidates';
       })
     })
