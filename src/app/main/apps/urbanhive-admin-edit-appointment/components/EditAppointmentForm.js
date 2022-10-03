@@ -10,8 +10,9 @@ import * as skillSetService from "./skillSetService";
 import CropEasy from './crop/CropEasy';
 import '../../app.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, useHistory,useParams } from 'react-router-dom';
 import { createProfile, fetchProfile, uploadImage } from 'redux/actions/profile.action';
+import { updateAppointment,/*fetchSelectedAppointment */ } from 'redux/actions/appointments.action';
 import { resetMsg } from 'redux/reducers/profile.slice';
 import { fb, static_img } from 'config/firebase';
 
@@ -76,6 +77,9 @@ const type = [
 
 
 export default function ProfileForm() {
+    const {id} = useParams();
+    const appointmentId = id
+    console.log(appointmentId)
     const nodeRef = useRef(null);
     const dispatch = useDispatch();
     const history = useHistory();
@@ -101,6 +105,14 @@ export default function ProfileForm() {
       skillset: createDevData.skillset == '' ? '' : createDevData.skillset,
       // hireDate: new Date(),
       // isPermanent: false,
+  }
+
+  //an update for sending all
+  const updates =  {
+     Day:new Date(),
+     time:new Date(),
+     developerBooked:"Dagus Urantus",
+
   }
 
 
@@ -157,7 +169,7 @@ export default function ProfileForm() {
 
     const handleSubmit = e => {
         e.preventDefault();
-       console.log('Photo URL: ', photoURL);
+       /*console.log('Photo URL: ', photoURL);
        console.log('File URL: ', file);
         e.preventDefault()
         if(values.isTechnical == 'nil'){
@@ -185,7 +197,9 @@ export default function ProfileForm() {
           }else{
             dispatch(uploadImage(profile, user, file, resetForm));
           } 
-        }
+        }*/
+
+        dispatch(updateAppointment(appointmentId,updates));
     }
 
     return !openCrop ? (
@@ -205,7 +219,7 @@ export default function ProfileForm() {
       {message && <div><Alert
         severity="success" color="success"
         action={
-          <Button color="inherit" size="small" style={{ fontSize: '15px' }} onClick={() => {dispatch(resetMsg())}}>
+          <Button color="inherit" size="small" style={{ fontSize: '15px'}} >
             <b>X</b>
           </Button>
         }
@@ -214,6 +228,14 @@ export default function ProfileForm() {
       </Alert><br/></div>
       /*SUBMISSION ALERT ENDING */
       }
+       {/*the back button */}
+        
+        <Button  size="small" style={{ fontSize: '15px',backgroundColor:'black',color:"white", marginBottom:"20px"}} onClick={()=>{history.push('/apps/admin/assignedbookings')}}>
+            <b>BACK</b>
+          </Button>
+
+        
+
         <h2>Current Details:</h2>
          <br/>
          <Grid container spacing={4}>

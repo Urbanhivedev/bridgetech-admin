@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   allAppointments: [],
   isLoading: false,
+  appointmentUpdated:false,
   info: '',
   error: '',
   message: '',
@@ -28,6 +29,23 @@ const appointmentsSlice = createSlice({
       (state.isLoading = false);
         (state.error = payload.errorMessage);
     },
+    // dagogo's update appointment reducers state
+    updateAppointmentPending: (state) => {
+      state.isLoading = true;
+      state.error = '';
+      state.message = '';
+    },
+    updateAppointmentSuccess: (state, action) => {
+      state.isLoading = false;
+      state.appointmentUpdated = action.payload;
+      state.error = '';
+      state.message = action.payload.msg;
+  },
+  
+  updateAppointmentFailed: (state, { payload }) => {
+    (state.isLoading = false);
+      (state.error = payload.errorMessage);
+  },
    /* initiatePending: (state) => {
       state.isLoading = true;
       state.error = '';
@@ -61,6 +79,9 @@ export const {
  fetchAppointmentsPending,
  fetchAppointmentsSuccess,
  fetchAppointmentsFailed,
+ updateAppointmentPending,
+ updateAppointmentSuccess,
+ updateAppointmentFailed,
  /*initiatePending,
  initiateSuccess,
  initiateSuccess2,

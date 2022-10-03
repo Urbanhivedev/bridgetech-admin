@@ -286,7 +286,7 @@ export default function ProfileForm() {
         <Grid item xs={12} sm={6}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <label htmlFor="profilePhoto">
-          <p>Upload your profile pic</p><br/>
+          <p>Upload his/her profile pic</p><br/>
             <input
               accept="image/*"
               id="profilePhoto"

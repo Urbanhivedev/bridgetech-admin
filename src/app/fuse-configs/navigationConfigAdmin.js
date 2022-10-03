@@ -43,7 +43,7 @@ const navigationConfigAdmin = [
         id: 'bootcamp',
         title: 'Bootcamp',
         type: 'item',
-        icon: 'graph',
+        icon: 'group',
         url: '/apps/bootcamp',
         // url: '/apps/coming-soon2',
       },

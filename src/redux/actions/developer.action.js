@@ -10,7 +10,7 @@ import { clearChat } from 'redux/reducers/chat.slice';
 
     export const fetchAllDevelopers = ( ) => async (dispatch) => {
             dispatch(fetchDevelopersPending());
-            // db.collection('Developers').where("uid", "!=", fb.auth().currentDeveloper.uid)
+            // db.collection('developers').where("uid", "!=", fb.auth().currentDeveloper.uid)
             db.collection('developers')
             .get()
             .then((snapshot) => {
