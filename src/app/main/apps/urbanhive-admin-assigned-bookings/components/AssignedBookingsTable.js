@@ -33,17 +33,7 @@ const useStyles = makeStyles(theme => ({
 
 
 
-let rows = [
-  /*{ id: 1, lastName: 'Elon', firstName: 'Tesla', phoneNumber:'09035197246', email: 'ogorkelvin289@gmail.com'},
-  { id: 2, lastName: 'Blake', firstName: 'Jade', phoneNumber:'08119477917' , email:'mydelivery250@gmail.com'},
-  { id: 3, lastName: 'Test', firstName: 'Said', phoneNumber:'08105565130', email: 'blakej@gmail.com'},
-  { id: 4, lastName: 'Stark', firstName: 'Arya', phoneNumber:'08119477917', email: 'tesla@gmail.com'},
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', phoneNumber:'08119477917' , email:'user_test5@bridgetechadvance.com'},
-  { id: 6, lastName: 'Melisandre', firstName: null, phoneNumber:'08183763331', email:'user_test4@bridgetechadvance.com'},
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', phoneNumber:'08119477917' , email:'user_test3@bridgetechadvance.com'},
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', phoneNumber:'08105565130'  , email:'user_test2@bridgetechadvance.com'},
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', phoneNumber:'08105565130' , email:'user_test1@bridgetechadvance.com'},*/
-];
+let rows = [];
 
 let upcomingAppointments = []
 let pastAppointments = []
@@ -103,8 +93,8 @@ export default function BasicTable() {
               <TableCell align="center">{row.email}</TableCell>
               <TableCell align="center">{row.developerBooked}</TableCell>
               <TableCell align="center">{new Date(row.Day.seconds*1000).toDateString()}</TableCell>
-              <TableCell align="center">{new Date(row.time.seconds*1000).toDateString()}</TableCell>
-              <TableCell align="center"><Link to = {`/apps/admin/editappointment/${'A1'}`}><AddBoxIcon/></Link></TableCell>
+              <TableCell align="center">{row.time.seconds}</TableCell>
+              <TableCell align="center"><Link to = {`/apps/admin/editappointment/${row.id}`}><AddBoxIcon/></Link></TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -146,7 +136,7 @@ export default function BasicTable() {
              <TableCell align="center">{row.email}</TableCell>
              <TableCell align="center">{row.developerBooked}</TableCell>
              <TableCell align="center">{new Date(row.Day.seconds*1000).toDateString()}</TableCell>
-             <TableCell align="center">{new Date(row.time.seconds*1000).toDateString()}</TableCell>
+             <TableCell align="center">{row.time}</TableCell>
              
            </TableRow>
           ))}
