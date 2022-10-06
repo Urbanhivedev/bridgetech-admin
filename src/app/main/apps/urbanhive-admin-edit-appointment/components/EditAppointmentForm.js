@@ -323,7 +323,9 @@ const [meetupDate,setMeetupDate] = useState(new Date())
 
                 <Grid item xs={12} sm={6}>
                <DatePicker name="Date" label="Change date" value={meetupDate}   onChange={(value)=>{setMeetupDate(value)}}/>
-              
+                       {/* you're passing in onchange as a prop , so that within the component another on change can call this on change with the outside value 
+                       the value you now pass on the inside is the value it will use as the functions argument on the outside*/}
+
                {/* <Controls.Select
                         name="Date"
                         label="Change date"
