@@ -32,7 +32,7 @@ function BootcampApp(props) {
   const [tabValue, setTabValue] = useState(0);
 
 
-  // if (!isAuth) return <Redirect to={'/login'}/>
+   if (!isAuth) return <Redirect to={'/login'}/>
   return (
     // <div style={{margin: "30px"}}>
     <FusePageSimple
