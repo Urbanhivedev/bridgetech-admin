@@ -277,7 +277,7 @@ const [meetupDate,setMeetupDate] = useState(new Date())
          <Grid container spacing={4}>
                 
                 <Grid item xs={12} sm={6}>
-                 <p>Topic: <h4 style={{color:'red'}}>{SelectedAppointment.topic.toUpperCase()}</h4></p>
+                 <p>Topic: <h4 style={{color:'red'}}>{SelectedAppointment && SelectedAppointment.topic.toUpperCase()}</h4></p>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                  <p>Chosen Developer:<h4>{SelectedAppointment?SelectedAppointment.developerBooked:"hi"}</h4></p>

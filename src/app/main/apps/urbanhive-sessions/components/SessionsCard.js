@@ -158,7 +158,7 @@ const theme = createTheme({
         component="img"
         height="170"
         image={TNAIL1}
-        alt="Paella dish"
+        alt="web dev fundamentals"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">

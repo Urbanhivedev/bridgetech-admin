@@ -2,9 +2,16 @@ import FusePageSimple from '@fuse/core/FusePageSimple';
 
 
 
-import  React,{useEffect} from 'react';
+import  React,{useEffect,useState} from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { useDispatch, useSelector } from 'react-redux';
+
+/*STYLE AND POSITIONING */
+import {Typography,Icon,AppBar,Card,CardHeader,CardActions,CardContent,CardMedia,CssBaseline,Grid,Container} from '@material-ui/core';
+import { Button,Alert } from '@mui/material';
+/*STYLE AND POSITIONING END */
+
+import { styled,createTheme, ThemeProvider  } from '@mui/material/styles';
 
 /*TABLE IMPORTS */
 import { makeStyles } from "@material-ui/core";
@@ -20,7 +27,7 @@ import { AddBoxOutlined } from '@material-ui/icons';
 /*TABLE IMPORTS END */
 
 /*REDUX ACTIONS AND FIREBASE */
-import { fetchAllAdminUsers, fetchRealTimeConnections, fetchRealTimeConnections2, initiateConnection } from 'redux/actions/adminUser.action';
+import { fetchAllAdminUsers, fetchRealTimeConnections, fetchRealTimeConnections2, initiateConnection,rollOverConnections } from 'redux/actions/adminUser.action';
 
 /*REDUX ACTIONS AND FIREBASE */
 
@@ -50,6 +57,21 @@ let rows = [
 
 export default function BasicTable() {
  
+  const [allReset,setAllReset] = useState(false)
+ 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        // light: will be calculated from palette.primary.main,
+        main: '#000000',
+        // dark: will be calculated from palette.primary.main,
+        // contrastText: will be calculated to contrast with palette.primary.main
+      }
+       
+    },
+  });
+
+
  /*dispatching actions */
   const dispatch = useDispatch();
   
@@ -57,20 +79,43 @@ export default function BasicTable() {
   const { allAdminUsers, error,message, isLoading } = useSelector((state) => state.adminUser);
   const { user } = useSelector((state) => state.login);
 
+   async function resetAndRefresh(){
+    dispatch(rollOverConnections()); 
+    setAllReset(true)
+  }
+
+
+
   useEffect(() => {
     dispatch(fetchAllAdminUsers());
     console.log(allAdminUsers)
     console.log(error)
      rows = [...allAdminUsers]
-  }, [])
+  }, [allReset])
  
   
  
   return (
       <>
-      
+       <ThemeProvider theme={theme}>
     <h1>BridgeTech Advance(All Users)</h1>
      <br/>
+     {allReset && <Alert>All users have now used 0 connections, refresh to confirm !</Alert>}
+
+     <Grid container spacing={1} justify="flex-end" style={{marginTop:"2rem", marginBottom:"2rem"}}>
+        <Grid item xs={4}>
+          <Button variant="contained" color="primary" onClick={resetAndRefresh} style={{height:"40px",fontSize:"13px",padding:"1rem", textDecoration:'none'}}>
+          
+           
+               &nbsp;
+                <b>Reset all Used Connections</b>  
+            
+          </Button>
+        </Grid>
+     </Grid>
+
+     <br/>
+
     <TableContainer component={Paper} >
       <Table sx={{ minWidth: 650 }}  aria-label="simple table">
         <TableHead>
@@ -80,7 +125,7 @@ export default function BasicTable() {
             <TableCell align="center">Name</TableCell>
             <TableCell align="center">Email</TableCell>
             <TableCell align="center">Phone Number</TableCell>
-            
+            <TableCell align="center">Used Connections</TableCell>
             <TableCell align="center">Registered On</TableCell>
             
           </TableRow>
@@ -100,7 +145,7 @@ export default function BasicTable() {
               <TableCell align="center">{row.name}</TableCell>
               <TableCell align="center">{row.email}</TableCell>
               <TableCell align="center">{row.phone && "0"+row.phone}</TableCell>
-             
+              <TableCell align="center">{row.usedConnection}</TableCell>
               <TableCell align="center">{new Date(row.registeredOn.seconds*1000).toLocaleDateString()}</TableCell>
              
             </TableRow>
@@ -108,6 +153,7 @@ export default function BasicTable() {
         </TableBody>
       </Table>
     </TableContainer>
+    </ThemeProvider>
     </>
   );
 }

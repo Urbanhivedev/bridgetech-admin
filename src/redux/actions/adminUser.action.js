@@ -1,5 +1,6 @@
 import {fetchAdminUsersPending, fetchAdminUsersSuccess, fetchAdminUsersFailed, fetchRealTimeAdminUsersSuccess, fetchConnectedAdminUserSuccess,
     initiatePending, initiateSuccess, initiateSuccess2, initiateFailed, clearUser} from '../reducers/adminUser.slice';
+    import {fetchUsersPending, fetchUsersSuccess,fetchUsersFailed } from '../reducers/user.slice'; /*i got lazy in dispatching rest connections but i will fix it to the proper convention */
   import { db, fb, auth, storage } from '../../config/firebase';
 import { sendChat } from './chat.action';
 import { result } from 'lodash';
@@ -145,6 +146,45 @@ export const fetchRealTimeConnections = (uid) => async (dispatch) => {
 
     return unsubscribe;
 };
+
+export const rollOverConnections = () => async (dispatch) => {
+    const collection = await db.collection("users").get()
+    
+    collection.forEach(doc=> {
+      doc.ref
+        .update({
+          usedConnection: 0
+        })
+        .then(() => {
+            
+           console.log('Users have been updated ');
+            
+          })
+          .catch((error) => {
+            var errorMessage = error.message;
+            console.log('Error resetting connections', errorMessage);
+          });
+    })
+
+
+
+ /*QUICK STATE UPDATE */
+ db.collection('users')
+ .get().then((snapshot) => {
+     const updatedUsers = snapshot.docs.map((doc) => ({ ...doc.data() }));
+     console.log('Users, ', updatedUsers);
+     dispatch(fetchAdminUsersSuccess(updatedUsers)); /*YOU DONT NEED TO HAVE A USER LIST THAT ONLY ADMINS CAN SEE GO AND REFACTOR SO THAT THERE IS ONLY ONE USER LIST */
+     dispatch(fetchUsersSuccess(updatedUsers));
+}).catch((error) => {
+     var errorMessage = error.message;
+     console.log('Error fetching profile', errorMessage);
+     dispatch(fetchAdminUsersFailed({ errorMessage }));
+});
+/*QUICK STATE UPDATE END*/
+
+  }
+
+
 
 export const fetchRealTimeConnections2 = (uid) => async (dispatch) => {
     const unsubscribe = db.collection("connections")
